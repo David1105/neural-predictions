@@ -6,8 +6,8 @@ x = file{:,2}';
 clear file;
 
 len = length(t);
-fst_test = round(len*0.9);
-[trainInd,valInd] = divideind(size(x,2),1:fst_test-1,fst_test:len);
+first_test = round(len*0.9);
+[trainInd,valInd] = divideind(size(x,2),1:first_test-1,first_test:len);
 
 trainX = t(trainInd);
 valX = t(valInd);
@@ -18,8 +18,8 @@ valY = x(valInd);
 net = feedforwardnet(10, 'trainlm');
 net = configure(net,[0,6],[-1,1]);
 net.divideFcn = 'divideind';
-net.divideParam.trainInd = 1:fst_test-1;
-net.divideParam.valInd = fst_test:len;
+net.divideParam.trainInd = 1:first_test-1;
+net.divideParam.valInd = first_test:len;
 net.divideParam.testInd = [];
 
 % display(net);
