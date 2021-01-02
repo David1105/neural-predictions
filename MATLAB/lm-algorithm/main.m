@@ -5,8 +5,9 @@ t = file{:,1}';
 x = file{:,2}';
 clear file;
 
+testPart = 0.1;
 len = length(t);
-first_test = round(len*0.9);
+first_test = round(len*(1-testPart));
 [trainInd,valInd] = divideind(size(x,2),1:first_test-1,first_test:len);
 
 trainX = t(trainInd);
