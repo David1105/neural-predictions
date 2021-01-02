@@ -31,10 +31,9 @@ net = init(net);
 P = [trainX,valX];
 T = [trainY,valY];
 
-net.trainParam.epochs = 500;
+net.trainParam.epochs = 1000;
 net.trainParam.max_fail = 1000;
-net.trainParam.goal = 1E-15;
-net.trainParam.min_grad = 1E-15;
+net.trainParam.min_grad = 1E-5;
 
 [net,tr] = train(net,P,T);
 xr = sim(net,trainX);
