@@ -45,12 +45,14 @@ gr = plot(t,x,trainX,xr,valX,xv); grid;
 set(gr(1),'LineStyle','-','Color','r','LineWidth',2);
 set(gr(2),'LineStyle','-','Color',[0 0.8 0],'LineWidth',2);
 set(gr(3),'LineStyle','-','Color','b','LineWidth',2);
+xlabel('Время'); ylabel('Значение');
 
 E = [xr, xv] - x;
 legend('Эталон','Аппроксимация','Прогнозирование');
 subplot(212)
 plot(t,E,'b','LineWidth',2); grid;
 legend('Ошибка обучения');
+xlabel('Время'); ylabel('Погрешность');
 
 X = x;
 SSE = sum(E.^2);
